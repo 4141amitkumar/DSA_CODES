@@ -3,21 +3,21 @@
 #include<string>
 using namespace std;
 int main(){
-    string s = "79+4*8/3-";
+    string s = "-/*+79483";
     stack<string> st;
     string ans="";
     char ch;
-    for(int i=0;i<s.length();i++){
+    for(int i=s.length()-1;i>=0;i--){
         if(s[i]>=48 && s[i]<=57){
             st.push(to_string(s[i]-48));
         }
         else{
             ch=s[i];
-            string val2 = st.top();
-            st.pop();
             string val1 = st.top();
             st.pop();
-            ans = '('+val1+ch+val2+')';
+            string val2 = st.top();
+            st.pop();
+            ans = val1+val2+ch;
             st.push(ans);
         }
     }

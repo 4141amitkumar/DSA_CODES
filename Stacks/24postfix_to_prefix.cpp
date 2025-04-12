@@ -17,7 +17,7 @@ int main(){
             st.pop();
             string val1 = st.top();
             st.pop();
-            ans = '('+val1+ch+val2+')';
+            ans = ch+val1+val2;
             st.push(ans);
         }
     }
